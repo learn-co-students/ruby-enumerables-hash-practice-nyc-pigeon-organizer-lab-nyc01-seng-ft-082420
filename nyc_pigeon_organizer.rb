@@ -5,7 +5,7 @@ def nyc_pigeon_organizer(data)
   data.each do |key, value|
     value.each_with_index do |(key, value), index|
       counter = 0
-      while counter < 4 do
+      while counter < value.length do
         pigeon_list[value[counter]] = index
         counter += 1
       end
@@ -33,7 +33,7 @@ def nyc_pigeon_organizer(data)
       end
     end
   end
-  pigeon_list
+  p pigeon_list
 end
 
 
