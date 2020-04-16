@@ -2,7 +2,10 @@ require 'pry'
 def nyc_pigeon_organizer(data)
   
   pigeon_list = Hash.new
+  attributes = Array.new
+  
   data.each do |key, value|
+    attributes << key
     value.each_with_index do |(key, value), index|
       counter = 0
       while counter < value.length do
@@ -11,11 +14,6 @@ def nyc_pigeon_organizer(data)
       end
       pigeon_list.reject! {|x| x.nil?}
     end
-  end
-  
-  attributes = Array.new
-  data.map do |key, value|
-    attributes << key
   end
   
   pigeon_list.each_with_index do |(key, value), index|
