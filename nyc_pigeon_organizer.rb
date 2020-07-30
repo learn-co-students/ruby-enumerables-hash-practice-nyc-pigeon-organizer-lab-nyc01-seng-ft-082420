@@ -1,18 +1,30 @@
 require 'pry'
 def nyc_pigeon_organizer(data)
-  results = data.each_with_object({}) do |(key, value), pigeon_array|
-    
+  pigeon_array = {
+    "Theo" => {:color => ["purple", "grey"], :gender => ["male"]}, 
+    "Peter Jr" => {:color => ["purple", "grey"]}, 
+    "Lucky" => {:color => ["purple"]},
+    "Ms. K" => {:color => ["grey"]},
+    "Alex" => {:gender => ["male"]}
+  }
+  
+  pigeon_hash = {}
+  
+  data.each do | key, value |
     value.each do |next_key, names|
       names.each do |name|
       
-     if  !pigeon_array[name]
-       pigeon_array[name] = {}
-     end
-     if !pigeon_array[name][key]
-       pigeon_array[name][key] = []
+        if  !pigeon_hash[name]
+          pigeon_hash[name] = {}
+        end
+        
+        if !pigeon_hash[name][key]
+          pigeon_hash[name][key] = []
+        end
+
+        pigeon_hash[name][key].push(next_key.to_s)
+      end
     end
-    pigeon_array[name][key].push(next_key.to_s)
-end
   end
-end
+  pigeon_hash
 end
